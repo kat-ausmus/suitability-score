@@ -1,0 +1,10 @@
+1234 Sample Address drive, CA, 90210
+44 Fake Dr., San Diego, CA 92122
+44 Faker Blvd, San Diego, CA 92122
+1 1st Ave. San Diego, CA 92134
+1 Early Morn Ave. San Diego, CA 92134
+12345 King of the Hill street, San Diego, CA 92011
+44 Faking Dr., San Diego, CA 92122
+44 Fake Farm Dr., San Diego, CA 92122
+44 Fake Fake Rd., San Diego, CA 92122
+1 Too Many Addresses Parkway, San Diego, CA 92122

@@ -1,0 +1,21 @@
+{
+  "type": "module",
+  "name": "suitability-score",
+  "description": "Find the suitability score for each driver given the destination addresses",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --experimental-vm-modules ./node_modules/.bin/jest",
+    "start": "node src/index.js"
+  },
+  "keywords": [],
+  "author": "Kat Ausmus",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "prettier": "^3.2.5"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^4.3.0"
+  }
+}
