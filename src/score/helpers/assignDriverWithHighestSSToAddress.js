@@ -40,6 +40,7 @@ export const assignDriverWithHighestSSToAddress = ({
     { name: null, suitabilityScore: 0 },
   );
 
+
   const driver = driverNames[highestSuitability.idx];
   const suitabilityScore = highestSuitability.suitabilityScore;
 

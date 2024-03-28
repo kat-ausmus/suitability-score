@@ -8,6 +8,9 @@ describe('cliPrompt', () => {
     it('should fail when pathname is invalid', () => {
       expect(cliPrompt.driverFile.validate('./resources/fail.txt')).toEqual('Error: ./resources/fail.txt is not a valid pathname');
     });
+    it('should fail when pathname is invalid', () => {
+      expect(cliPrompt.driverFile.validate('./resources')).toEqual('./resources is not a file!');
+    });
   });
   describe('Destination Addresses prompt', () => {
     it('should validate', () => {

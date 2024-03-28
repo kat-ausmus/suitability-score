@@ -1,6 +1,4 @@
 import { assignDriverWithHighestSSToAddress } from '../../../src/score/helpers/assignDriverWithHighestSSToAddress.js';
-import { beforeEach } from '@jest/globals';
-
 describe('assignDriverWithHighestSSToAddress', () => {
   let driverNames, streetName;
   beforeEach(()=> {
@@ -24,14 +22,18 @@ describe('assignDriverWithHighestSSToAddress', () => {
     expect(assignDriverWithHighestSSToAddress({driverNames, streetName})).toEqual({driver:'Charles Leclerco', suitabilityScore:11.25});
   })
 
+  it('returns when no driver\'s name is empty string',()=> {
+    driverNames = [''];
+    expect(assignDriverWithHighestSSToAddress({driverNames, streetName})).toEqual({ driver: undefined, suitabilityScore: 0 });
+  })
+
   it('returns null when no driverNames',()=> {
     driverNames = [];
-    expect(assignDriverWithHighestSSToAddress({driverNames, streetName})).toBe(null);
+    expect(assignDriverWithHighestSSToAddress({driverNames, streetName})).toEqual(null);
   })
 
   it('returns null when no streetName',()=> {
-    driverNames.push('some name');
     streetName='';
-    expect(assignDriverWithHighestSSToAddress({driverNames, streetName})).toBe(null);
+    expect(assignDriverWithHighestSSToAddress({driverNames, streetName})).toEqual(null);
   })
 })
