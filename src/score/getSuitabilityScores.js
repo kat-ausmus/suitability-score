@@ -1,13 +1,14 @@
-import {assignDriverWithHighestSSToAddress} from './assignDriverWithHighestSSToAddress.js';
+import {assignDriverWithHighestSSToAddress} from './helpers/assignDriverWithHighestSSToAddress.js';
 
 /**
- * Goes through the list of addresses to assign the best possible driver.
+ * Given a list of addresses and a list of drivers, find the best suitable driver for the address using
+ * the suitabilityScore logic.
  *
  * @param driverNames
  * @param addresses
- * @returns {*}
+ * @returns { totalSuitabilityScore: number, driverAssignments }
  */
-export const getSuitabilityScore = ({ driverNames, addresses }) => {
+export const getSuitabilityScores = ({ driverNames, addresses }) => {
   const mostSuitableDriverForAddress = addresses.map(
     ({ address, streetName }) => {
       const { driver, suitabilityScore } = assignDriverWithHighestSSToAddress({

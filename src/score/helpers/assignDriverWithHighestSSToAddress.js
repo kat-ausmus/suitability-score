@@ -1,4 +1,5 @@
-import {determineSuitabilityScore} from './scoreUtil.js';
+import { determineSuitabilityScore } from './determineSuitabilityScore.js';
+
 
 /**
  * This function assigns the highest suitability score of a driver to an address
@@ -42,8 +43,7 @@ export const assignDriverWithHighestSSToAddress = ({
   const driver = driverNames[highestSuitability.idx];
   const suitabilityScore = highestSuitability.suitabilityScore;
 
-  // mutating the driveNames list
-  // not the best solution, but it removes the driver from the rotation for the day
+  // mutating the driveNames list to remove drivers that area already assigned from the list
   delete driverNames[highestSuitability.idx];
 
   return {

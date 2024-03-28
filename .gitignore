@@ -29,6 +29,6 @@ coverage
 
 .idea
 
-# ocr-it
+# suitability-score
 /node_modules/
 /coverage/

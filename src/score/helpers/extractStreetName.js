@@ -1,6 +1,9 @@
-import { endOfStreetNameRegEx } from './constants/regEx.js';
+import { endOfStreetNameRegEx } from '../constants/regEx.js';
 
 export const extractStreetName = (address) => {
+  if(!address){
+    return null;
+  }
   const addressComponents = address.split(/[\s,]/);
   let streetNameFound = false;
   const streetNameArr = addressComponents.reduce((acc, component, idx) => {
