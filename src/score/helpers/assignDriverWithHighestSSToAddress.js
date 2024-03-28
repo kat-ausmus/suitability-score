@@ -13,7 +13,7 @@ export const assignDriverWithHighestSSToAddress = ({
   driverNames,
   streetName,
 }) => {
-  if (driverNames.length === 0) {
+  if (driverNames.length === 0 || !streetName){
     return null;
   }
 

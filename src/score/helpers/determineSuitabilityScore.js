@@ -1,8 +1,8 @@
-
-import { EVEN_MULTIPLIER, ODD_MULTIPLIER } from '../constants/multipler.js';
 import { consonantsRegEx, vowelsRegEx } from '../constants/regEx.js';
 import { gcf } from '../../utility/gcf.js';
 
+const EVEN_MULTIPLIER = 1.5;
+const ODD_MULTIPLIER = 1;
 
 /**
  * The top-secret algorithm is:
@@ -21,17 +21,17 @@ import { gcf } from '../../utility/gcf.js';
 export const determineSuitabilityScore = ({ driverName, streetName }) => {
   const streetNameLength = streetName.length;
   const driverNameLength = driverName.length;
-  let baseSS = 0;
+  let baseSS;
 
   // if street name is even
   if (streetNameLength % 2 === 0) {
     const vowelsInName = driverName.match(vowelsRegEx);
-    baseSS = vowelsInName.length * EVEN_MULTIPLIER;
+    baseSS = vowelsInName ? vowelsInName.length * EVEN_MULTIPLIER: 0;
   } else {
     const consonantsInName = driverName.match(consonantsRegEx);
-    baseSS = consonantsInName?.length * ODD_MULTIPLIER;
+    baseSS = consonantsInName? consonantsInName?.length * ODD_MULTIPLIER : 0;
   }
-  const factor = gcf(streetNameLength, driverNameLength);
 
+  const factor = gcf(streetNameLength, driverNameLength);
   return factor > 1 ? baseSS * 1.5 : baseSS;
 };
