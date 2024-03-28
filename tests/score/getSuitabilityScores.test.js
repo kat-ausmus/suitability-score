@@ -30,15 +30,18 @@ describe('getSuitabilityScores', () => {
     });
   });
 
-  it('returns no driver assignments when there are no addresses', () => {
+  it('returns no driver assignments when there is an addresses but no streetName', () => {
     addresses = [{
-      address: '10 mascot rd., some city, some state, 10000',
+      address: '10 rd., some city, some state, 10000',
       streetName: '',
-    },
-    ];
+    }];
     expect(getSuitabilityScores({ driverNames, addresses })).toEqual({
       totalSuitabilityScore: 0,
-      driverAssignments: [],
+      driverAssignments: [{
+        'address': '10 rd., some city, some state, 10000',
+        'driver': undefined,
+        'suitabilityScore': undefined,
+      }],
     });
   });
 

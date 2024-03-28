@@ -17,6 +17,13 @@ const config = {
 
     // Indicates which provider should be used to instrument code for coverage
     coverageProvider: "v8",
+
+    collectCoverageFrom: [
+        "src/**/*.js",
+        "!src/index.js",
+        "!src/score/runSuitabilityScore.js"
+    ],
+    transform: {}
 };
 
 export default config;

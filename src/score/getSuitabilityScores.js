@@ -25,7 +25,7 @@ export const getSuitabilityScores = ({ driverNames, addresses }) => {
     },
   );
   const totalSuitabilityScore = mostSuitableDriverForAddress.reduce(
-    (acc, { suitabilityScore, ..._others }) => acc + suitabilityScore,
+    (acc, { suitabilityScore, ..._others }) => acc + (suitabilityScore ?? 0),
     0,
   );
   return {

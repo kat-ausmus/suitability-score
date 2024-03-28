@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
-    "test": "node --experimental-vm-modules --trace-warnings ./node_modules/.bin/jest --collectCoverageFrom 'src/**/*.js'",
+    "test": "node --experimental-vm-modules --trace-warnings ./node_modules/.bin/jest",
     "start": "node src/index.js"
   },
   "keywords": [],
