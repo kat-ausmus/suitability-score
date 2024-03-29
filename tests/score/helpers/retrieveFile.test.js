@@ -20,8 +20,9 @@ describe('getDriverNames', () => {
     );
   });
 
-  it('throw an error when filename does not exists', async () => {
-    expect(getDriverNames('./resource/faker.txt')).rejects.toThrowError();
+  it('returns [], when filename does not exists', async () => {
+    const result = await getDriverNames('./resource/driverFaker.txt');
+    expect(result).toEqual([]);
   });
 });
 
@@ -55,8 +56,9 @@ describe('getDestinationAddresses', () => {
     expect(result).toEqual(objList);
   });
 
-  it('throw an error when filename does not exists', async () => {
-    expect(getDestinationAddresses('./faker.txt')).rejects.toThrowError();
+  it('returns [] when filename is does not exists', async () => {
+    const result = await getDestinationAddresses('./addressFaker.txt');
+    expect(result).toEqual([]);
   });
 });
 

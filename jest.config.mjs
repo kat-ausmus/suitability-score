@@ -20,8 +20,7 @@ const config = {
 
     collectCoverageFrom: [
         "src/**/*.js",
-        "!src/index.js",
-        "!src/score/runSuitabilityScore.js"
+        "!src/index.js"
     ],
     transform: {}
 };
