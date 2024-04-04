@@ -24,15 +24,15 @@ describe('extractStreetName', () => {
     },
     {
       address: '2 Roady Road, San Diego, CA 92122',
-      result: 'Roady'
+      result: 'Roady',
     },
     {
       address: '3 StreetWise Street, San Diego, CA 92122',
-      result: 'StreetWise'
+      result: 'StreetWise',
     },
     {
       address: '4 LoneDrive Court, San Diego, CA 92122',
-      result: 'LoneDrive'
+      result: 'LoneDrive',
     },
     {
       address: null,

@@ -8,8 +8,8 @@ import { getDriversSuitabilityScoreForStreetName } from './getDriversSuitability
  * @param driverNames
  * @returns {{totalSuitabilityScore: number, addressDriverPairs: *, orderedSuitabilityScores: Set}}
  */
-export const computeAllSuitabilityScore = ({addresses, driverNames}) => {
-  const {totalSuitabilityScore, setOfSuitabilityScores, addressesResult} = addresses.reduce(
+export const computeAllSuitabilityScore = ({ addresses, driverNames }) => {
+  const { totalSuitabilityScore, setOfSuitabilityScores, addressesResult } = addresses.reduce(
     (accumulator, { address, streetName }) => {
       const suitabilityScoresOfAllDriversForStreetNameArr = getDriversSuitabilityScoreForStreetName({
         driverNames,
@@ -17,9 +17,9 @@ export const computeAllSuitabilityScore = ({addresses, driverNames}) => {
       }) || [];
 
       let sumOfAllSuitabilityScoreForAddress = 0;
-      suitabilityScoresOfAllDriversForStreetNameArr?.forEach(item =>  {
-        if(item.suitabilityScore) {
-          accumulator.setOfSuitabilityScores.add(item.suitabilityScore)
+      suitabilityScoresOfAllDriversForStreetNameArr?.forEach(item => {
+        if (item.suitabilityScore) {
+          accumulator.setOfSuitabilityScores.add(item.suitabilityScore);
           sumOfAllSuitabilityScoreForAddress += item.suitabilityScore;
         }
       });
@@ -27,13 +27,13 @@ export const computeAllSuitabilityScore = ({addresses, driverNames}) => {
       accumulator.totalSuitabilityScore += sumOfAllSuitabilityScoreForAddress;
 
       return accumulator;
-    }, {totalSuitabilityScore:0, setOfSuitabilityScores:new Set(),addressesResult:{}}
+    }, { totalSuitabilityScore: 0, setOfSuitabilityScores: new Set(), addressesResult: {} },
   );
- const orderedSuitabilityScores = [...setOfSuitabilityScores].sort((a,b) => b - a); // descending order
+  const orderedSuitabilityScores = [...setOfSuitabilityScores].sort((a, b) => b - a); // descending order
 
- return {
-   totalSuitabilityScore:totalSuitabilityScore,
-   orderedSuitabilityScores,
-   addressDriverPairs: addressesResult
- }
-}
+  return {
+    totalSuitabilityScore: totalSuitabilityScore,
+    orderedSuitabilityScores,
+    addressDriverPairs: addressesResult,
+  };
+};

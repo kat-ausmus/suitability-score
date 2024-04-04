@@ -17,9 +17,13 @@ export const getSuitabilityScores = ({ driverNames, addresses }) => {
     };
   }
 
-  const {totalSuitabilityScore, orderedSuitabilityScores,addressDriverPairs} = computeAllSuitabilityScore({addresses,driverNames});
+  const {
+    totalSuitabilityScore,
+    orderedSuitabilityScores,
+    addressDriverPairs,
+  } = computeAllSuitabilityScore({ addresses, driverNames });
 
-  const mostSuitableDriverForAddress = getDriverAddressAssignments({addressDriverPairs,orderedSuitabilityScores});
+  const mostSuitableDriverForAddress = getDriverAddressAssignments({ addressDriverPairs, orderedSuitabilityScores });
 
   return {
     totalSuitabilityScore,

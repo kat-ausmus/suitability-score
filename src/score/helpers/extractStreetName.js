@@ -1,7 +1,7 @@
 import { endOfStreetNameRegEx } from '../constants/regEx.js';
 
 export const extractStreetName = (address) => {
-  if(!address){
+  if (!address) {
     return null;
   }
   const addressComponents = address.split(/[\s,]/);

@@ -26,10 +26,10 @@ export const determineSuitabilityScore = ({ driverName, streetName }) => {
   // if street name is even
   if (streetNameLength % 2 === 0) {
     const vowelsInName = driverName.match(vowelsRegEx);
-    baseSS = vowelsInName ? vowelsInName.length * EVEN_MULTIPLIER: 0;
+    baseSS = vowelsInName ? vowelsInName.length * EVEN_MULTIPLIER : 0;
   } else {
     const consonantsInName = driverName.match(consonantsRegEx);
-    baseSS = consonantsInName? consonantsInName?.length * ODD_MULTIPLIER : 0;
+    baseSS = consonantsInName ? consonantsInName?.length * ODD_MULTIPLIER : 0;
   }
 
   const factor = gcf(streetNameLength, driverNameLength);

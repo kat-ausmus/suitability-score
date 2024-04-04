@@ -55,12 +55,11 @@ describe('runSuitabilityScore', () => {
             driver: 'John Doe',
             suitabilityScore: 6.75,
           },
-
           {
             address: '44 Fake Farm Dr., San Diego, CA 92122',
             driver: 'Bruce Wayne',
             suitabilityScore: 6,
-          }
+          },
         ],
       },
     );
@@ -68,7 +67,7 @@ describe('runSuitabilityScore', () => {
 
   it('returns total assignment of 0, and no driver assignments when there are no addresses', async () => {
     const result = await runSuitabilityScore({
-      destinationAddressFile: 'someFile.txt', driverFile
+      destinationAddressFile: 'someFile.txt', driverFile,
     });
     expect(result).toEqual({
       totalSuitabilityScore: 0,
@@ -78,7 +77,7 @@ describe('runSuitabilityScore', () => {
 
   it('returns total assignment of 0, and no driver assignments when there are no driverFIles', async () => {
     const result = await runSuitabilityScore({
-      destinationAddressFile, driverFile:'someBogusFile.txt'
+      destinationAddressFile, driverFile: 'someBogusFile.txt',
     });
     expect(result).toEqual({
       totalSuitabilityScore: 0,
