@@ -1,5 +1,6 @@
 # Suitability-Score
-Given a set of driver names and destination address, assign the driver with the best suitability score to the destination address.
+Given a set of driver names and destination address, assign the driver with the highest combined score of all pairings to a destination address.
+One driver can only be assigned to one address and vice versa.
 
 
 You can `clone` or `fork` from the repo:`git@github.com:kat-ausmus/suitability-score.git`
@@ -22,7 +23,7 @@ Sample output is:
 ? Destination Address pathname: ./resources/destinationAddresses.txt
 ? Driver pathname: ./resources/driverNames.txt
 Results are: {
-  totalSuitabilityScore: 86.5,
+  totalSuitabilityScore: 776.25,
   driverAssignments: [
     {
       address: '1234 Sample Address drive, CA, 90210',
@@ -30,14 +31,19 @@ Results are: {
       suitabilityScore: 15.75
     },
     {
-      address: '44 Fake Dr., San Diego, CA 92122',
+      address: '1 Early Morn Ave. San Diego, CA 92134',
       driver: 'Marcus Aurelius',
-      suitabilityScore: 10.5
+      suitabilityScore: 15.75
+    },
+    {
+      address: '44 Faking Dr., San Diego, CA 92122',
+      driver: 'Daniel Davidson',
+      suitabilityScore: 13.5
     },
     {
       address: '44 Faker Blvd, San Diego, CA 92122',
-      driver: 'Daniel Davidson',
-      suitabilityScore: 12
+      driver: 'Clark Kent',
+      suitabilityScore: 10.5
     },
     {
       address: '1 1st Ave. San Diego, CA 92134',
@@ -45,7 +51,7 @@ Results are: {
       suitabilityScore: 10.5
     },
     {
-      address: '1 Early Morn Ave. San Diego, CA 92134',
+      address: '44 Fake Dr., San Diego, CA 92122',
       driver: 'Charles Darwin',
       suitabilityScore: 9
     },
@@ -55,27 +61,18 @@ Results are: {
       suitabilityScore: 9
     },
     {
-      address: '44 Faking Dr., San Diego, CA 92122',
+      address: '1 Too Many Addresses Parkway, San Diego, CA 92122',
       driver: 'John Doe',
       suitabilityScore: 6.75
     },
     {
       address: '44 Fake Farm Dr., San Diego, CA 92122',
-      driver: 'Clark Kent',
-      suitabilityScore: 7
-    },
-    {
-      address: '44 Fake Fake Rd., San Diego, CA 92122',
       driver: 'Bruce Wayne',
       suitabilityScore: 6
-    },
-    {
-      address: '1 Too Many Addresses Parkway, San Diego, CA 92122',
-      driver: undefined,
-      suitabilityScore: 0
     }
   ]
 }
+
 
 ```
 

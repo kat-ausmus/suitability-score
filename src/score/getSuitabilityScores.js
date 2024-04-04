@@ -1,4 +1,5 @@
-import { assignDriverWithHighestSSToAddress } from './helpers/assignDriverWithHighestSSToAddress.js';
+import { computeAllSuitabilityScore } from './helpers/computeAllSuitabilityScore.js';
+import { getDriverAddressAssignments } from './helpers/getDriverAddressAssignments.js';
 
 /**
  * Given a list of addresses and a list of drivers, find the best suitable driver for the address using
@@ -15,19 +16,11 @@ export const getSuitabilityScores = ({ driverNames, addresses }) => {
       driverAssignments: [],
     };
   }
-  const mostSuitableDriverForAddress = addresses.map(
-    ({ address, streetName }) => {
-      const { driver, suitabilityScore } = assignDriverWithHighestSSToAddress({
-        driverNames,
-        streetName,
-      }) || {};
-      return { address, driver, suitabilityScore };
-    },
-  );
-  const totalSuitabilityScore = mostSuitableDriverForAddress.reduce(
-    (acc, { suitabilityScore, ..._others }) => acc + (suitabilityScore ?? 0),
-    0,
-  );
+
+  const {totalSuitabilityScore, orderedSuitabilityScores,addressDriverPairs} = computeAllSuitabilityScore({addresses,driverNames});
+
+  const mostSuitableDriverForAddress = getDriverAddressAssignments({addressDriverPairs,orderedSuitabilityScores});
+
   return {
     totalSuitabilityScore,
     driverAssignments: mostSuitableDriverForAddress,

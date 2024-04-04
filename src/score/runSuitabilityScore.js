@@ -8,7 +8,7 @@ export const runSuitabilityScore = async ({ destinationAddressFile, driverFile }
   const destinationAddresses = await getDestinationAddresses(destinationAddressFile);
 
   return getSuitabilityScores({
-    driverNames: [...driverNames], // pass in a copy of the original driverNames list,
+    driverNames: driverNames,
     addresses: destinationAddresses,
   });
 };

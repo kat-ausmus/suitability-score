@@ -21,7 +21,7 @@ describe('getSuitabilityScores', () => {
 
   it('returns driver assignments to addresses', () => {
     expect(getSuitabilityScores({ driverNames, addresses })).toEqual({
-      totalSuitabilityScore: 28.5,
+      totalSuitabilityScore: 102,
       driverAssignments: [{
         driver: 'Charles Leclerc', suitabilityScore: 15, address: '1 ascot dr., some city, some state, 10000',
       }, {
@@ -37,11 +37,7 @@ describe('getSuitabilityScores', () => {
     }];
     expect(getSuitabilityScores({ driverNames, addresses })).toEqual({
       totalSuitabilityScore: 0,
-      driverAssignments: [{
-        'address': '10 rd., some city, some state, 10000',
-        'driver': undefined,
-        'suitabilityScore': undefined,
-      }],
+      driverAssignments: [],
     });
   });
 
